@@ -1,0 +1,509 @@
+/* =============== RESET =============== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Britti Sans", sans-serif;
+}
+
+body {
+  background-color: #131429;
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* =============== NAVIGATION BAR =============== */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #050516;
+  padding: 15px 30px;
+}
+
+.nav .logo img {
+  height: 40px;
+}
+
+.nav-link ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-link ul li {
+  position: relative;
+}
+
+.nav-link a, 
+.nav-link label {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.nav-link select {
+  margin-left: 8px;
+  padding: 4px;
+  border-radius: 4px;
+  border: none;
+  background: #1a1b2e;
+  color: white;
+}
+
+.login a {
+  background: #0077ff;
+  padding: 8px 16px;
+  border-radius: 6px;
+}
+
+/* Dropdown container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* Hide the native select initially */
+.dropdown select {
+  display: none;
+  position: absolute;
+  top: 100%; /* below the label + arrow */
+  left: 0;
+  background: #1a1b2e;
+  border: 1px solid #333;
+  border-radius: 6px;
+  color: #fff;
+  padding: 8px;
+  min-width: 120px;
+  z-index: 10;
+}
+
+/* Show select on hover */
+.dropdown:hover select {
+  display: block;
+}
+
+/* Style the arrow */
+.dropdown i {
+  margin-left: 5px;
+  color: #fff;
+  font-size: 14px;
+}
+
+/* =============== PAGE TITLE =============== */
+.title {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.title h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.action-btn {
+  background-color: #0077ff;
+  color: #fff;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.action-btn:hover {
+  background-color: #005fcc;
+}
+
+/* =============== GRID CONTAINER (FORM + VIDEO) =============== */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 30px;
+  align-items: stretch; 
+  margin: 70px;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
+
+.text {
+  background: none;
+  margin-bottom: 15px;
+  padding-left: 5px;
+}
+
+.text h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.form {
+  background: #1a1b2e;
+  padding: 20px;
+  border-radius: 12px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form input[type="text"],
+.form input[type="email"] {
+  width: 75%;
+  height: 50px;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 6px;
+  border: 1.7px solid #2c2b2c;
+  background: #131429;
+  color: white;
+}
+
+.form input::placeholder {
+  color: #aaa;
+}
+
+.form .button input {
+  background: #0077ff;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 75%;
+  height: 50px;
+  font-size: 16px;
+  transition: background 0.3s;
+  margin-top: 15px;
+}
+
+.form .button input:hover {
+  background: #005bcc;
+}
+
+/* Right Side (Video) */
+.video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* =============== PROJECTS SECTION =============== */
+.projects {
+  padding: 50px 70px;
+}
+
+/* Project Overview (Two Columns) */
+.project-overview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 30px;
+  background: #1a1b2e;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  margin-bottom: 50px;
+}
+
+.project-title h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.paragraph p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #ddd;
+}
+
+.action-button button {
+  background: #0077ff;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.action-button button:hover {
+  background: #005ad1;
+}
+
+.project-image-with-my-images img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* All Projects Grid */
+.cards-showing-all-projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #1a1b2e;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 15px;
+}
+
+.card-content h3 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.card-content p {
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  color: #aaa;
+}
+
+.card-content a {
+  display: inline-block;
+  background: #0077ff;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.card-content a:hover {
+  background: #005ad1;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  background-color: #131429;
+  padding: 60px 40px;
+  color: #fff;
+}
+
+/* Footer container layout */
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+/* Each footer section */
+.footer-container h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.footer-container ul {
+  list-style: none;
+}
+
+.footer-container ul li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* Bundle + Company stacked */
+.bundle-company {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Resources + Follow Us side by side */
+.reso-follow-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Follow us icons */
+.follow-us ul {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.follow-us a {
+  color: #fff;
+  font-size: 24px;
+}
+
+/* Card fits full width under Resources + Follow Us */
+.reso-follow-card .card {
+  background: #1a1b2e;
+  padding: 25px;
+  border-radius: 12px;
+  width: 100%;
+}
+
+.reso-follow-card .card h1 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.footer-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.footer-form input[type="email"] {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  height: 50px;
+  border: 1.7px solid #2c2b2c;
+  background: #131429;
+  color: white;
+}
+
+.footer-form input[type="submit"] {
+  padding: 10px 20px;
+  background: #0077ff;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  height: 50px;
+}
+
+.reso-follow-card .text {
+  font-size: 13px;
+  margin-top: 10px;
+  color: #aaa;
+}
+
+/* Divider line before footer logos */
+.footer-logos {
+  border-top: 1px solid #333;
+  margin-top: 30px;
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-logos img {
+  height: 35px;
+}
+
+.text-wit-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-logos button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #0077ff;
+  border: none;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  height: 50px;
+  font-size: 16px;
+}
+
+/* =============== RESPONSIVE DESIGN =============== */
+@media (max-width: 1024px) {
+  .container {
+    margin: 40px;
+  }
+  
+  .projects {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .nav-link ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .container {
+    grid-template-columns: 1fr;
+    margin: 20px;
+    gap: 20px;
+  }
+  
+  .form input[type="text"],
+  .form input[type="email"],
+  .form .button input {
+    width: 100%;
+  }
+  
+  .project-overview {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-logos {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .title h1 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-link ul {
+    flex-direction: column;
+  }
+  
+  .title h1 {
+    font-size: 1.5rem;
+  }
+  
+  .footer-form {
+    flex-direction: column;
+  }
+  
+  .footer-form input[type="submit"] {
+    width: 100%;
+  }
+}
