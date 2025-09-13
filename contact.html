@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Leonard Ponje - Web Developer & Data Scientist</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* =============== RESET & GLOBAL STYLES =============== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --secondary: #f43f5e;
+      --accent: #10b981;
+      --dark: #0f172a;
+      --darker: #070a13;
+      --light: #f1f5f9;
+      --gray: #94a3b8;
+      --success: #22c55e;
+    }
+
+    body {
+      background-color: var(--darker);
+      color: var(--light);
+      line-height: 1.6;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(at 80% 20%, rgba(99, 102, 241, 0.15) 0, transparent 60%),
+        radial-gradient(at 20% 80%, rgba(244, 63, 94, 0.15) 0, transparent 60%);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 2.5rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 2px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    }
+
+    .btn-secondary {
+      background: linear-gradient(135deg, var(--secondary), #e11d48);
+    }
+
+    .btn-secondary:hover {
+      background: linear-gradient(135deg, #e11d48, var(--secondary));
+    }
+
+    .btn-accent {
+      background: linear-gradient(135deg, var(--accent), #059669);
+    }
+
+    .btn-accent:hover {
+      background: linear-gradient(135deg, #059669, var(--accent));
+    }
+
+    /* =============== NAVIGATION BAR =============== */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(7, 10, 19, 0.9);
+      padding: 15px 5%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav .logo img {
+      height: 40px;
+    }
+
+    .nav .logo span {
+      font-weight: 700;
+      font-size: 1.4rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-link ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .nav-link a {
+      color: var(--light);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-link a:hover {
+      color: var(--primary);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* =============== CONTACT HERO SECTION =============== */
+    .contact-hero {
+      padding: 160px 0 80px;
+      text-align: center;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%236366f1" fill-opacity="0.1" d="M0,128L48,117.3C96,107,192,85,288,112C384,139,480,213,576,224C672,235,768,181,864,160C960,139,1056,149,1152,165.3C1248,181,1344,203,1392,213.3L1440,224L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>') no-repeat bottom;
+      background-size: contain;
+    }
+
+    .contact-hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      line-height: 1.2;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact-hero p {
+      font-size: 1.2rem;
+      color: var(--gray);
+      margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    /* =============== CONTACT CONTENT SECTION =============== */
+    .contact-content {
+      background-color: var(--dark);
+      border-radius: 20px;
+      margin: 0 20px;
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .contact-details h4 {
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+
+    .contact-details p {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    .contact-form {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.7), rgba(7, 10, 19, 0.7));
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(15, 23, 42, 0.5);
+      color: var(--light);
+      font-size: 1rem;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+    }
+
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    /* =============== FAQ SECTION =============== */
+    .faq {
+      position: relative;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 30px;
+    }
+
+    .faq-item {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.7), rgba(7, 10, 19, 0.7));
+      padding: 25px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .faq-question {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .faq-question i {
+      color: var(--primary);
+    }
+
+    .faq-answer {
+      color: var(--gray);
+    }
+
+    /* =============== FOOTER =============== */
+    footer {
+      background-color: var(--dark);
+      padding: 80px 0 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h3 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-col h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 2px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 12px;
+    }
+
+    .footer-col ul li a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--primary);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--light);
+      transition: all 0.3s;
+    }
+
+    .social-links a:hover {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-bottom p {
+      color: var(--gray);
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-bottom-links a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-bottom-links a:hover {
+      color: var(--primary);
+    }
+
+    /* =============== RESPONSIVE DESIGN =============== */
+    @media (max-width: 1024px) {
+      .contact-hero h1 {
+        font-size: 2.8rem;
+      }
+      
+      .contact-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-link ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--dark);
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      } 
+      
+      .nav-link.active ul {
+        display: flex;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .contact-hero h1 {
+        font-size: 2.3rem;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .footer-bottom-links {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .contact-hero h1 {
+        font-size: 2rem;
+      }
+      
+      .contact-hero p {
+        font-size: 1rem;
+      }
+      
+      .contact-form,
+      .faq-item {
+        padding: 20px;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+    }
+
+    /* Animation keyframes */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate {
+      animation: fadeIn 1s ease-out forwards;
+    }
+
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.4s; }
+    .delay-3 { animation-delay: 0.6s; }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <div class="nav">
+    <div class="logo">
+      <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='20' y='20' width='60' height='60' fill='%236366f1' rx='10'/><text x='50' y='65' font-family='Arial' font-size='30' fill='white' text-anchor='middle'>L</text></svg>" alt="Leonard Ponje Logo">
+      <span>LeonardPonje</span>
+    </div>
+
+    <div class="nav-link" id="navLink">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="https://github.com/Leonard432120" class="btn">GitHub</a></li>
+      </ul>
+    </div>
+    
+    <div class="mobile-menu-btn" id="mobileMenuBtn">
+      <i class="fas fa-bars"></i>
+    </div>
+  </div>
+
+  <!-- Contact Hero Section -->
+  <section class="contact-hero">
+    <div class="container">
+      <h1 class="animate">Let's Build Something Amazing Together</h1>
+      <p class="animate delay-1">Ready to transform your business with custom digital solutions? Get in touch to discuss your project and how I can help you achieve your goals.</p>
+      <div class="hero-buttons animate delay-2">
+        <a href="#contact-form" class="btn">Start a Project</a>
+        <a href="services.html" class="btn btn-secondary">Explore Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Content Section -->
+  <section class="contact-content">
+    <div class="container">
+      <div class="contact-container">
+        <div class="contact-info animate">
+          <h2 class="section-title">Get In Touch</h2>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-details">
+              <h4>Email</h4>
+              <p>leonardponjemlungu@gmail.com</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="contact-details">
+              <h4>Phone</h4>
+              <p>+265 899 520 423</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="contact-details">
+              <h4>Location</h4>
+              <p>Malawi</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fab fa-github"></i>
+            </div>
+            <div class="contact-details">
+              <h4>GitHub</h4>
+              <p>github.com/Leonard432120</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="contact-details">
+              <h4>Response Time</h4>
+              <p>Within 24 hours</p>
+            </div>
+          </div>
+          
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        
+        <div class="contact-form animate delay-1" id="contact-form">
+          <h3>Start Your Project</h3>
+          <form id="projectForm">
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" placeholder="Enter your full name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="company">Company Name</label>
+              <input type="text" id="company" placeholder="Enter your company name">
+            </div>
+            
+            <div class="form-group">
+              <label for="service">Service Needed *</label>
+              <select id="service" required>
+                <option value="">Select a service</option>
+                <option value="web-development">Web Development</option>
+                <option value="database">Database Solutions</option>
+                <option value="data-analysis">Data Analysis & Visualization</option>
+                <option value="machine-learning">Machine Learning</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="budget">Project Budget (MWK)</label>
+              <select id="budget">
+                <option value="">Select budget range</option>
+                <option value="500-1000">MWK500,000 - MWK1,000,000</option>
+                <option value="1000-2500">MWK1,000,000 - MWK2,500,000</option>
+                <option value="2500-5000">MWK2,500,000 - MWK5,000,000</option>
+                <option value="5000-10000">MWK5,000,000 - MWK10,000,000</option>
+                <option value="10000+">MWK10,000,000+</option>
+                <option value="not-sure">Not sure</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="timeline">Project Timeline</label>
+              <select id="timeline">
+                <option value="">Select timeline</option>
+                <option value="1-2 weeks">1-2 weeks</option>
+                <option value="2-4 weeks">2-4 weeks</option>
+                <option value="1-2 months">1-2 months</option>
+                <option value="2-4 months">2-4 months</option>
+                <option value="4+ months">4+ months</option>
+                <option value="not-sure">Not sure</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Project Details *</label>
+              <textarea id="message" placeholder="Tell me about your project, goals, and requirements" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn" style="width: 100%">Get a Quote</button>
+          </form>
+          
+          <p class="privacy-note">
+            <i class="fas fa-shield-alt"></i> Your information is secure and will never be shared with third parties.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      
+      <div class="faq-grid">
+        <div class="faq-item animate">
+          <div class="faq-question">
+            <i class="fas fa-question-circle"></i>
+            <h3>How long does a typical project take?</h3>
+          </div>
+          <p class="faq-answer">Project timelines vary based on complexity. Simple websites may take 2-4 weeks, while complex web applications with databases can take 2-4 months. I'll provide a detailed timeline after our initial consultation.</p>
+        </div>
+        
+        <div class="faq-item animate delay-1">
+          <div class="faq-question">
+            <i class="fas fa-question-circle"></i>
+            <h3>What's your development process?</h3>
+          </div>
+          <p class="faq-answer">I follow a structured process: 1) Consultation to understand your needs, 2) Planning and proposal, 3) Development with regular updates, 4) Testing and refinement, 5) Deployment and ongoing support.</p>
+        </div>
+        
+        <div class="faq-item animate delay-2">
+          <div class="faq-question">
+            <i class="fas fa-question-circle"></i>
+            <h3>Do you provide ongoing support?</h3>
+          </div>
+          <p class="faq-answer">Yes, I offer various support packages after project completion. This includes bug fixes, updates, feature additions, and performance monitoring to ensure your solution continues to meet your needs.</p>
+        </div>
+        
+        <div class="faq-item animate delay-3">
+          <div class="faq-question">
+            <i class="fas fa-question-circle"></i>
+            <h3>What technologies do you work with?</h3>
+          </div>
+          <p class="faq-answer">I work with a wide range of technologies including HTML/CSS, JavaScript, PHP, MySQL, Python, React, Java, C, C++, and various data science and machine learning libraries.</p>
+        </div>
+        
+        <div class="faq-item animate">
+          <div class="faq-question">
+            <i class="fas fa-question-circle"></i>
+            <h3>How do you handle project communication?</h3>
+          </div>
+          <p class="faq-answer">I maintain regular communication through your preferred channels (email, phone, video calls). You'll receive weekly progress updates and have opportunities to provide feedback at each development stage.</p>
+        </div>
+        
+        <div class="faq-item animate delay-1">
+          <div class="faq-question">
+            <i class="fas fa-question-circle"></i>
+            <h3>What industries have you worked with?</h3>
+          </div>
+          <p class="faq-answer">I've worked with clients across various industries including education, healthcare, e-commerce, finance, and non-profit organizations. My diverse skill set allows me to adapt to different business needs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-col">
+          <h3>Leonard Ponje</h3>
+          <p>Full-Stack Developer & Data Scientist creating innovative web solutions and data-driven applications.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="#">Web Development</a></li>
+            <li><a href="#">Data Science</a></li>
+            <li><a href="#">Database Solutions</a></li>
+            <li><a href="#">Machine Learning</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Contact Info</h3>
+          <p>Reach out for collaborations or inquiries about my services.</p>
+          <p>Email: leonardponje@example.com</p>
+          <p>Location: Malawi</p>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>© 2025 Leonard Ponje Mlungu. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+      document.getElementById('navLink').classList.toggle('active');
+    });
+
+    // Animation on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      const animatedElements = document.querySelectorAll('.animate');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+      
+      animatedElements.forEach(element => {
+        element.style.opacity = 0;
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        observer.observe(element);
+      });
+
+      // Form submission
+      const form = document.getElementById('projectForm');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const submitBtn = this.querySelector('button[type="submit"]');
+          const originalText = submitBtn.textContent;
+          
+          submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+          submitBtn.disabled = true;
+          
+          // Simulate form submission
+          setTimeout(() => {
+            alert('Thank you for your inquiry! I will review your project details and get back to you within 24 hours.');
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+            form.reset();
+          }, 2000);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
