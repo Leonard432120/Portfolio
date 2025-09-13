@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me - Leonard Ponje | Web Developer & Data Scientist</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* =============== RESET & GLOBAL STYLES =============== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --secondary: #f43f5e;
+      --accent: #10b981;
+      --dark: #0f172a;
+      --darker: #070a13;
+      --light: #f1f5f9;
+      --gray: #94a3b8;
+      --success: #22c55e;
+    }
+
+    body {
+      background-color: var(--darker);
+      color: var(--light);
+      line-height: 1.6;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(at 80% 20%, rgba(99, 102, 241, 0.15) 0, transparent 60%),
+        radial-gradient(at 20% 80%, rgba(244, 63, 94, 0.15) 0, transparent 60%);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 2.5rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 2px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    }
+
+    .btn-secondary {
+      background: linear-gradient(135deg, var(--secondary), #e11d48);
+    }
+
+    .btn-secondary:hover {
+      background: linear-gradient(135deg, #e11d48, var(--secondary));
+    }
+
+    .btn-accent {
+      background: linear-gradient(135deg, var(--accent), #059669);
+    }
+
+    .btn-accent:hover {
+      background: linear-gradient(135deg, #059669, var(--accent));
+    }
+
+    /* =============== NAVIGATION BAR =============== */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(7, 10, 19, 0.9);
+      padding: 15px 5%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav .logo img {
+      height: 40px;
+    }
+
+    .nav .logo span {
+      font-weight: 700;
+      font-size: 1.4rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-link ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .nav-link a {
+      color: var(--light);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-link a:hover {
+      color: var(--primary);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* =============== ABOUT HERO SECTION =============== */
+    .about-hero {
+      padding: 180px 0 80px;
+      text-align: center;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%236366f1" fill-opacity="0.1" d="M0,128L48,117.3C96,107,192,85,288,112C384,139,480,213,576,224C672,235,768,181,864,160C960,139,1056,149,1152,165.3C1248,181,1344,203,1392,213.3L1440,224L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>') no-repeat bottom;
+      background-size: contain;
+    }
+
+    .about-hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      line-height: 1.2;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .about-hero p {
+      font-size: 1.2rem;
+      color: var(--gray);
+      margin-bottom: 40px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    /* =============== ABOUT CONTENT SECTION =============== */
+    .about-content {
+      background-color: var(--dark);
+      border-radius: 20px;
+      margin: 0 20px;
+    }
+
+    .about-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-image {
+      position: relative;
+    }
+
+    .about-image img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .about-badge {
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-weight: 600;
+      box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+    }
+
+    .about-text h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      color: var(--gray);
+      margin-bottom: 30px;
+    }
+
+    .experience-stats {
+      display: flex;
+      gap: 30px;
+      margin: 25px 0;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+
+    /* =============== SERVICES SECTION =============== */
+    .services {
+      position: relative;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .service-card {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.7), rgba(7, 10, 19, 0.7));
+      padding: 30px;
+      border-radius: 16px;
+      text-align: center;
+      transition: transform 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .service-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 1.8rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    .service-card p {
+      color: var(--gray);
+      margin-bottom: 20px;
+    }
+
+    .service-features {
+      list-style: none;
+      text-align: left;
+      margin-top: 20px;
+    }
+
+    .service-features li {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .service-features li i {
+      color: var(--success);
+    }
+
+    /* =============== PROCESS SECTION =============== */
+    .process {
+      background-color: var(--dark);
+      border-radius: 20px;
+      margin: 0 20px;
+      text-align: center;
+    }
+  
+    .process-title {
+      font-size: 1.8rem;
+      margin-bottom: 40px;
+      color: var(--light);
+    }
+  
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+    }
+  
+    .process-step {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.7), rgba(7, 10, 19, 0.7));
+      padding: 25px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: transform 0.3s ease;
+    }
+  
+    .process-step:hover {
+      transform: translateY(-5px);
+    }
+  
+    .step-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px;
+      font-size: 1.5rem;
+    }
+  
+    .process-step h4 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: var(--light);
+    }
+  
+    .process-step p {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    /* =============== TECHNOLOGIES SECTION =============== */
+    .technologies {
+      position: relative;
+    }
+
+    .technologies-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+  
+    .technology-category {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.7), rgba(7, 10, 19, 0.7));
+      padding: 25px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+  
+    .technology-category h3 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  
+    .technology-category h3 i {
+      color: var(--primary);
+    }
+  
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+  
+    .tech-tag {
+      background: rgba(99, 102, 241, 0.15);
+      color: var(--primary);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+
+    /* =============== CTA SECTION =============== */
+    .cta-section {
+      text-align: center;
+      padding: 100px 0;
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.7), rgba(7, 10, 19, 0.7));
+      border-radius: 20px;
+      margin: 0 20px;
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .cta-section p {
+      color: var(--gray);
+      margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* =============== FOOTER =============== */
+    footer {
+      background-color: var(--dark);
+      padding: 80px 0 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h3 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-col h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 2px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 12px;
+    }
+
+    .footer-col ul li a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--primary);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--light);
+      transition: all 0.3s;
+    }
+
+    .social-links a:hover {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-bottom p {
+      color: var(--gray);
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-bottom-links a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-bottom-links a:hover {
+      color: var(--primary);
+    }
+
+    /* =============== RESPONSIVE DESIGN =============== */
+    @media (max-width: 1024px) {
+      .about-hero h1 {
+        font-size: 2.8rem;
+      }
+      
+      .about-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-link ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--dark);
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      } 
+      
+      .nav-link.active ul {
+        display: flex;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .about-hero h1 {
+        font-size: 2.3rem;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .experience-stats {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .footer-bottom-links {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .about-hero h1 {
+        font-size: 2rem;
+      }
+      
+      .about-hero p {
+        font-size: 1rem;
+      }
+      
+      .service-card,
+      .process-step,
+      .technology-category {
+        padding: 20px;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+    }
+
+    /* Animation keyframes */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate {
+      animation: fadeIn 1s ease-out forwards;
+    }
+
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.4s; }
+    .delay-3 { animation-delay: 0.6s; }
+    .delay-4 { animation-delay: 0.8s; }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <div class="nav">
+    <div class="logo">
+      <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='20' y='20' width='60' height='60' fill='%236366f1' rx='10'/><text x='50' y='65' font-family='Arial' font-size='30' fill='white' text-anchor='middle'>L</text></svg>" alt="Leonard Ponje Logo">
+      <span>LeonardPonje</span>
+    </div>
+
+    <div class="nav-link" id="navLink">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="https://github.com/Leonard432120" class="btn">GitHub</a></li>
+      </ul>
+    </div>
+    
+    <div class="mobile-menu-btn" id="mobileMenuBtn">
+      <i class="fas fa-bars"></i>
+    </div>
+  </div>
+
+  <!-- About Hero Section -->
+  <section class="about-hero">
+    <div class="container">
+      <h1 class="animate">Your Development & Data Solutions Partner</h1>
+      <p class="animate delay-1">I build custom digital solutions that help businesses grow, scale, and succeed online. With expertise in both web development and data science, I create solutions that are not just functional but also strategically valuable.</p>
+      <div class="hero-buttons animate delay-2">
+        <a href="#services" class="btn">Explore My Services</a>
+        <a href="contact.html" class="btn btn-secondary">Start a Project</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Content Section -->
+  <section class="about-content" id="about">
+    <div class="container">
+      <div class="about-container">
+        <div class="about-image animate">
+          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><circle cx='200' cy='200' r='200' fill='%236366f1' opacity='0.2'/><text x='200' y='220' font-family='Arial' font-size='24' fill='white' text-anchor='middle'>Your Photo Here</text></svg>" alt="Leonard Ponje Mlungu">
+          <div class="about-badge">Available for Projects</div>
+        </div>
+        
+        <div class="about-text animate delay-1">
+          <h2>Leonard Ponje Mlungu</h2>
+          <p>I'm a full-stack developer and data scientist with expertise across multiple programming languages and statistical analysis. I don't create templates—I build <strong>custom solutions</strong> tailored to your specific business needs.</p>
+          
+          <div class="experience-stats">
+            <div class="stat-item">
+              <div class="stat-value">50+</div>
+              <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">15+</div>
+              <div class="stat-label">Technologies</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">100%</div>
+              <div class="stat-label">Client Satisfaction</div>
+            </div>
+          </div>
+          
+          <p>My unique combination of development skills and data science expertise allows me to approach problems from both technical and analytical perspectives, delivering comprehensive solutions that drive real business results.</p>
+          <a href="contact.html" class="btn">Let's Work Together</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services" id="services">
+    <div class="container">
+      <h2 class="section-title">How I Help Businesses Grow</h2>
+      
+      <div class="services-grid">
+        <div class="service-card animate">
+          <div class="service-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <h3>Custom Web Development</h3>
+          <p>Tailored web applications and websites built to your exact specifications and business requirements.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Responsive design for all devices</li>
+            <li><i class="fas fa-check"></i> Clean, maintainable code</li>
+            <li><i class="fas fa-check"></i> Performance optimization</li>
+            <li><i class="fas fa-check"></i> SEO-friendly structure</li>
+          </ul>
+        </div>
+        
+        <div class="service-card animate delay-1">
+          <div class="service-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <h3>Database Solutions</h3>
+          <p>Design, implementation and management of efficient database systems for your applications.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Database design & architecture</li>
+            <li><i class="fas fa-check"></i> Query optimization</li>
+            <li><i class="fas fa-check"></i> Data migration</li>
+            <li><i class="fas fa-check"></i> Backup & recovery solutions</li>
+          </ul>
+        </div>
+        
+        <div class="service-card animate delay-2">
+          <div class="service-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>Data Analysis & Visualization</h3>
+          <p>Transform your raw data into actionable insights with powerful analytics and visualizations.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Data cleaning & processing</li>
+            <li><i class="fas fa-check"></i> Statistical analysis</li>
+            <li><i class="fas fa-check"></i> Interactive dashboards</li>
+            <li><i class="fas fa-check"></i> Business intelligence reports</li>
+          </ul>
+        </div>
+
+        <div class="service-card animate delay-3">
+          <div class="service-icon">
+            <i class="fas fa-plug"></i>
+          </div>
+          <h3>API Integration</h3>
+          <p>Connect your systems with third-party services and create seamless workflows.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> RESTful API development</li>
+            <li><i class="fas fa-check"></i> Third-party API integration</li>
+            <li><i class="fas fa-check"></i> Payment gateway integration</li>
+            <li><i class="fas fa-check"></i> Webhook implementation</li>
+          </ul>
+        </div>
+
+        <div class="service-card animate delay-3">
+          <div class="service-icon">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3>Machine Learning Solutions</h3>
+          <p>Implement predictive models and AI solutions to gain competitive advantage.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Predictive modeling</li>
+            <li><i class="fas fa-check"></i> Natural language processing</li>
+            <li><i class="fas fa-check"></i> Recommendation systems</li>
+            <li><i class="fas fa-check"></i> Data mining</li>
+          </ul>
+        </div>
+
+        <div class="service-card animate delay-3">
+          <div class="service-icon">
+            <i class="fas fa-tools"></i>
+          </div>
+          <h3>Maintenance & Support</h3>
+          <p>Ongoing maintenance and support to keep your systems running smoothly.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Bug fixes & troubleshooting</li>
+            <li><i class="fas fa-check"></i> Performance monitoring</li>
+            <li><i class="fas fa-check"></i> Security updates</li>
+            <li><i class="fas fa-check"></i> Feature enhancements</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="process">
+    <div class="container">
+      <h2 class="section-title">My Development Process</h2>
+      
+      <div class="process-steps">
+        <div class="process-step animate">
+          <div class="step-icon">
+            <i class="fas fa-comment-dots"></i>
+          </div>
+          <h4>Consultation</h4>
+          <p>We discuss your project requirements, goals, and vision to understand exactly what you need.</p>
+        </div>
+        
+        <div class="process-step animate delay-1">
+          <div class="step-icon">
+            <i class="fas fa-pen-fancy"></i>
+          </div>
+          <h4>Planning</h4>
+          <p>I create a detailed project plan with timeline, milestones, and technology stack.</p>
+        </div>
+        
+        <div class="process-step animate delay-2">
+          <div class="step-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h4>Development</h4>
+          <p>I build your solution using the most appropriate technologies with regular updates.</p>
+        </div>
+        
+        <div class="process-step animate delay-3">
+          <div class="step-icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <h4>Deployment</h4>
+          <p>Your project goes live with thorough testing, documentation, and ongoing support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technologies Section -->
+  <section class="technologies">
+    <div class="container">
+      <h2 class="section-title">Technologies I Work With</h2>
+      
+      <div class="technologies-grid">
+        <div class="technology-category animate">
+          <h3><i class="fas fa-code"></i> Frontend Development</h3>
+          <div class="tech-tags">
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">Bootstrap</span>
+          </div>
+        </div>
+        
+        <div class="technology-category animate delay-1">
+          <h3><i class="fas fa-server"></i> Backend Development</h3>
+          <div class="tech-tags">
+            <span class="tech-tag">PHP</span>
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">Java</span>
+            <span class="tech-tag">Express.js</span>
+          </div>
+        </div>
+        
+        <div class="technology-category animate delay-2">
+          <h3><i class="fas fa-database"></i> Database & Analytics</h3>
+          <div class="tech-tags">
+            <span class="tech-tag">MySQL</span>
+            <span class="tech-tag">MongoDB</span>
+            <span class="tech-tag">PostgreSQL</span>
+            <span class="tech-tag">Data Science</span>
+            <span class="tech-tag">Machine Learning</span>
+          </div>
+        </div>
+        
+        <div class="technology-category animate delay-3">
+          <h3><i class="fas fa-cogs"></i> Other Technologies</h3>
+          <div class="tech-tags">
+            <span class="tech-tag">C</span>
+            <span class="tech-tag">C++</span>
+            <span class="tech-tag">Statistical Analysis</span>
+            <span class="tech-tag">API Integration</span>
+            <span class="tech-tag">Git</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2 class="animate">Ready to Transform Your Business?</h2>
+      <p class="animate delay-1">Let's work together to create custom solutions that drive growth and deliver real results for your business.</p>
+      <div class="hero-buttons animate delay-2">
+        <a href="contact.html" class="btn">Start a Project</a>
+        <a href="projects.html" class="btn btn-secondary">View My Work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-col">
+          <h3>Leonard Ponje</h3>
+          <p>Full-Stack Developer & Data Scientist creating innovative web solutions and data-driven applications.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="services.html">Web Development</a></li>
+            <li><a href="services.html">Data Science</a></li>
+            <li><a href="services.html">Database Solutions</a></li>
+            <li><a href="services.html">API Integration</a></li>
+            <li><a href="services.html">Machine Learning</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Contact Info</h3>
+          <p>Reach out for collaborations or inquiries about my services.</p>
+          <p>Email: leonardponje@example.com</p>
+          <p>Location: Malawi</p>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>© 2025 Leonard Ponje Mlungu. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+      document.getElementById('navLink').classList.toggle('active');
+    });
+
+    // Animation on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      const animatedElements = document.querySelectorAll('.animate');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+      
+      animatedElements.forEach(element => {
+        element.style.opacity = 0;
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        observer.observe(element);
+      });
+    });
+  </script>
+</body>
+</html>

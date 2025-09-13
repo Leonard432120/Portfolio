@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ponje Design | Ponje Design Resources</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>Leonard Ponje | Web Developer & Data Scientist</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     /* =============== RESET & GLOBAL STYLES =============== */
     * {
@@ -18,6 +18,7 @@
       --primary: #6366f1;
       --primary-dark: #4f46e5;
       --secondary: #f43f5e;
+      --accent: #10b981;
       --dark: #0f172a;
       --darker: #070a13;
       --light: #f1f5f9;
@@ -50,6 +51,7 @@
       margin-bottom: 50px;
       font-size: 2.5rem;
       background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       position: relative;
@@ -96,6 +98,14 @@
       background: linear-gradient(135deg, #e11d48, var(--secondary));
     }
 
+    .btn-accent {
+      background: linear-gradient(135deg, var(--accent), #059669);
+    }
+
+    .btn-accent:hover {
+      background: linear-gradient(135deg, #059669, var(--accent));
+    }
+
     /* =============== NAVIGATION BAR =============== */
     .nav {
       display: flex;
@@ -126,6 +136,7 @@
       font-weight: 700;
       font-size: 1.4rem;
       background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -137,64 +148,16 @@
       align-items: center;
     }
 
-    .nav-link a, 
-    .nav-link label {
+    .nav-link a {
       color: var(--light);
       text-decoration: none;
       font-size: 16px;
       font-weight: 500;
       transition: color 0.3s;
-      cursor: pointer;
     }
 
-    .nav-link a:hover,
-    .nav-link label:hover {
+    .nav-link a:hover {
       color: var(--primary);
-    }
-
-    .dropdown {
-      position: relative;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background: var(--dark);
-      min-width: 200px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-      border-radius: 8px;
-      padding: 10px 0;
-      top: 100%;
-      left: 0;
-      z-index: 1;
-    }
-
-    .dropdown-content a {
-      display: block;
-      padding: 10px 20px;
-      color: var(--light);
-      text-decoration: none;
-      transition: background 0.3s;
-    }
-
-    .dropdown-content a:hover {
-      background: rgba(99, 102, 241, 0.1);
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    .login a {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      padding: 10px 20px;
-      border-radius: 6px;
-      transition: all 0.3s;
-    }
-
-    .login a:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(79, 70, 229, 0.3);
     }
 
     .mobile-menu-btn {
@@ -237,20 +200,20 @@
       margin-top: 30px;
     }
 
-    /* =============== FEATURES SECTION =============== */
-    .features {
+    /* =============== SERVICES SECTION =============== */
+    .services {
       background-color: var(--dark);
       border-radius: 20px;
       margin: 0 20px;
     }
 
-    .features-grid {
+    .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
     }
 
-    .feature-card {
+    .service-card {
       background: linear-gradient(145deg, rgba(15, 23, 42, 0.7), rgba(7, 10, 19, 0.7));
       padding: 30px;
       border-radius: 16px;
@@ -259,12 +222,12 @@
       border: 1px solid rgba(255, 255, 255, 0.05);
     }
 
-    .feature-card:hover {
+    .service-card:hover {
       transform: translateY(-10px);
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
     }
 
-    .feature-icon {
+    .service-icon {
       width: 70px;
       height: 70px;
       background: linear-gradient(135deg, var(--primary), var(--primary-dark));
@@ -276,29 +239,47 @@
       font-size: 1.8rem;
     }
 
-    .feature-card h3 {
+    .service-card h3 {
       font-size: 1.5rem;
       margin-bottom: 15px;
     }
 
-    .feature-card p {
+    .service-card p {
       color: var(--gray);
+      margin-bottom: 20px;
     }
 
-    /* =============== FORM SECTION =============== */
-    .form-section {
+    .service-features {
+      list-style: none;
+      text-align: left;
+      margin-top: 20px;
+    }
+
+    .service-features li {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .service-features li i {
+      color: var(--success);
+    }
+
+    /* =============== CONTACT SECTION =============== */
+    .contact-section {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 50px;
       align-items: center;
     }
 
-    .form-content h2 {
+    .contact-content h2 {
       font-size: 2.2rem;
       margin-bottom: 20px;
     }
 
-    .form-content p {
+    .contact-content p {
       color: var(--gray);
       margin-bottom: 30px;
     }
@@ -319,7 +300,7 @@
       color: var(--success);
     }
 
-    .form-card {
+    .contact-card {
       background: linear-gradient(145deg, rgba(15, 23, 42, 0.7), rgba(7, 10, 19, 0.7));
       padding: 30px;
       border-radius: 16px;
@@ -337,7 +318,7 @@
       font-weight: 500;
     }
 
-    .form-group input {
+    .form-group input, .form-group textarea, .form-group select {
       width: 100%;
       padding: 15px;
       border-radius: 8px;
@@ -347,10 +328,15 @@
       font-size: 1rem;
     }
 
-    .form-group input:focus {
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
       outline: none;
       border-color: var(--primary);
       box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
     }
 
     .privacy-note {
@@ -400,6 +386,7 @@
       font-size: 2rem;
       font-weight: 700;
       background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -614,36 +601,6 @@
       color: var(--primary);
     }
 
-    .footer-form {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 15px;
-    }
-
-    .footer-form input {
-      flex: 1;
-      padding: 12px 15px;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(15, 23, 42, 0.5);
-      color: var(--light);
-    }
-
-    .footer-form button {
-      padding: 12px 20px;
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      border: none;
-      border-radius: 8px;
-      color: white;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .footer-form button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(79, 70, 229, 0.3);
-    }
-
     .social-links {
       display: flex;
       gap: 15px;
@@ -702,7 +659,7 @@
         font-size: 2.8rem;
       }
       
-      .form-section,
+      .contact-section,
       .project-main {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -720,7 +677,7 @@
         flex-direction: column;
         padding: 20px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-      }
+      } 
       
       .nav-link.active ul {
         display: flex;
@@ -767,9 +724,9 @@
         font-size: 1rem;
       }
       
-      .feature-card,
+      .service-card,
       .testimonial-card,
-      .form-card {
+      .contact-card {
         padding: 20px;
       }
       
@@ -797,26 +754,17 @@
   <!-- Navigation Bar -->
   <div class="nav">
     <div class="logo">
-      <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='20' y='20' width='60' height='60' fill='%236366f1' rx='10'/><text x='50' y='65' font-family='Arial' font-size='30' fill='white' text-anchor='middle'>D</text></svg>" alt="Ponje Design Logo">
-      <span>PonjeDesign</span>
+      <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='20' y='20' width='60' height='60' fill='%236366f1' rx='10'/><text x='50' y='65' font-family='Arial' font-size='30' fill='white' text-anchor='middle'>L</text></svg>" alt="Leonard Ponje Logo">
+      <span>LeonardPonje</span>
     </div>
 
     <div class="nav-link" id="navLink">
       <ul>
-        <li class="dropdown">
-          <label for="course-select">Courses <i class="fa fa-chevron-down"></i></label>
-          <div class="dropdown-content">
-            <a href="#">Introduction To HTML/CSS</a>
-            <a href="#">Introduction To Javascript</a>
-            <a href="#">PHP/MYSQL</a>
-            <a href="#">UX Research Fundamentals</a>
-            <a href="#">Advanced Prototyping</a>
-          </div>
-        </li>
-        <li><a href="student-stories.php">Student Stories</a></li>
-        <li><a href="free-resources.php">Free Resources</a></li>
-        <li><a href="About.php">About</a></li>
-        <li class="login"><a href="login.php">Login</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#contact" class="btn">Hire Me</a></li>
       </ul>
     </div>
     
@@ -828,67 +776,85 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
-      <h1 class="animate">Transform your business potential with Leonard Ponje Mlungu</h1>
-      <p class="animate delay-1">Get access to professionally designed Figma templates, UI kits, and design systems that will accelerate your workflow and impress your clients.</p>
+      <h1 class="animate">Custom Web Development & Data Solutions for Your Business</h1>
+      <p class="animate delay-1">I build tailored digital solutions that help businesses grow, scale, and succeed online. With expertise in both web development and data science, I create solutions that are not just functional but also strategically valuable.</p>
       <div class="hero-buttons animate delay-2">
-        <a href="#form-section" class="btn">Get Started With Us</a>
-        <a href="https://www.udemy.com/course/learn-html-and-css-in-7-days-web-developer-bootcamp/?couponCode=MT180825G1" class="btn btn-secondary">Explore Resources</a>
+        <a href="#contact" class="btn">Start a Project</a>
+        <a href="#services" class="btn btn-secondary">Explore Services</a>
       </div>
     </div>
   </section>
 
-  <!-- Features Section -->
-  <section class="features" id="features">
+  <!-- Services Section -->
+  <section class="services" id="services">
     <div class="container">
-      <h2 class="section-title">Why People Love My Resources</h2>
-      <div class="features-grid">
-        <div class="feature-card animate">
-          <div class="feature-icon">
-            <i class="fas fa-palette"></i>
+      <h2 class="section-title">How I Can Help Your Business</h2>
+      <div class="services-grid">
+        <div class="service-card animate">
+          <div class="service-icon">
+            <i class="fas fa-laptop-code"></i>
           </div>
-          <h3>Fully Customizable</h3>
-          <p>Easily change colors, fonts, and layouts to match your brand identity and project requirements.</p>
+          <h3>Custom Web Development</h3>
+          <p>Tailored web applications and websites built to your exact specifications and business requirements.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Responsive design for all devices</li>
+            <li><i class="fas fa-check"></i> Clean, maintainable code</li>
+            <li><i class="fas fa-check"></i> Performance optimization</li>
+            <li><i class="fas fa-check"></i> SEO-friendly structure</li>
+          </ul>
         </div>
         
-        <div class="feature-card animate delay-1">
-          <div class="feature-icon">
-            <i class="fas fa-mobile-alt"></i>
+        <div class="service-card animate delay-1">
+          <div class="service-icon">
+            <i class="fas fa-database"></i>
           </div>
-          <h3>Responsive Design</h3>
-          <p>Perfectly adapted for all screen sizes from desktop to mobile with well-organized breakpoints.</p>
+          <h3>Database Solutions</h3>
+          <p>Design, implementation and management of efficient database systems for your applications.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Database design & architecture</li>
+            <li><i class="fas fa-check"></i> Query optimization</li>
+            <li><i class="fas fa-check"></i> Data migration</li>
+            <li><i class="fas fa-check"></i> Backup & recovery solutions</li>
+          </ul>
         </div>
         
-        <div class="feature-card animate delay-2">
-          <div class="feature-icon">
-            <i class="fas fa-layer-group"></i>
+        <div class="service-card animate delay-2">
+          <div class="service-icon">
+            <i class="fas fa-chart-line"></i>
           </div>
-          <h3>Well-Organized</h3>
-          <p>Clean layers, components, and styles that make editing a breeze even for everyone.</p>
+          <h3>Data Analysis & Visualization</h3>
+          <p>Transform your raw data into actionable insights with powerful analytics and visualizations.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Data cleaning & processing</li>
+            <li><i class="fas fa-check"></i> Statistical analysis</li>
+            <li><i class="fas fa-check"></i> Interactive dashboards</li>
+            <li><i class="fas fa-check"></i> Business intelligence reports</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Form Section -->
-  <section class="container form-section" id="form-section">
-    <div class="form-content animate">
-      <h2>Get Started With Leonard Ponje Mlungu To See The Change</h2>
-  <p>Over 25,000 clients are already achieving more with my resources, now it's your turn! Enter your details below for instant access.</p>
+  <!-- Contact Section -->
+  <section class="container contact-section" id="contact">
+    <div class="contact-content animate">
+      <h2>Let's Build Something Amazing Together</h2>
+      <p>Ready to transform your business with custom digital solutions? Let's discuss your project and how I can help you achieve your goals.</p>
       
       <ul class="benefits-list">
-        <li><i class="fas fa-check-circle"></i> Save dozens of hours of design time</li>
-        <li><i class="fas fa-check-circle"></i> Impress clients with professional layouts</li>
-        <li><i class="fas fa-check-circle"></i> Fully customizable to match your brand</li>
-        <li><i class="fas fa-check-circle"></i> Get free updates for 1 year</li>
+        <li><i class="fas fa-check-circle"></i> Free initial consultation</li>
+        <li><i class="fas fa-check-circle"></i> Transparent pricing</li>
+        <li><i class="fas fa-check-circle"></i> Regular progress updates</li>
+        <li><i class="fas fa-check-circle"></i> Ongoing support & maintenance</li>
       </ul>
       
       <div class="trust-badges">
-        <p><i class="fas fa-lock"></i> We respect your privacy and never share your data</p>
+        <p><i class="fas fa-lock"></i> Your project details are kept confidential</p>
       </div>
     </div>
     
-    <div class="form-card animate delay-1">
-      <h3>Download Now</h3>
+    <div class="contact-card animate delay-1">
+      <h3>Start Your Project</h3>
       <form>
         <div class="form-group">
           <label for="name">Full Name</label>
@@ -897,61 +863,77 @@
         
         <div class="form-group">
           <label for="email">Email Address</label>
-          <input type="email" id="email" placeholder="Enter your best email" required>
+          <input type="email" id="email" placeholder="Enter your email" required>
         </div>
         
         <div class="form-group">
-          <label for="goals">Your Main Goal</label>
-          <input type="text" id="goals" placeholder="Education, agency work, etc.">
+          <label for="company">Company Name</label>
+          <input type="text" id="company" placeholder="Enter your company name">
         </div>
         
-        <button type="submit" class="btn" style="width: 100%">Let's Get Started</button>
+        <div class="form-group">
+          <label for="service">Service Needed</label>
+          <select id="service" required>
+            <option value="">Select a service</option>
+            <option value="web-development">Web Development</option>
+            <option value="database">Database Solutions</option>
+            <option value="data-analysis">Data Analysis</option>
+            <option value="api-integration">API Integration</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Project Details</label>
+          <textarea id="message" placeholder="Tell me about your project" required></textarea>
+        </div>
+        
+        <button type="submit" class="btn" style="width: 100%">Get a Quote</button>
       </form>
       
       <p class="privacy-note">
-        <i class="fas fa-shield-alt"></i> We respect your privacy and follow GDPR guidelines. Unsubscribe at any time.
+        <i class="fas fa-shield-alt"></i> Your information is secure and will never be shared with third parties.
       </p>
     </div>
   </section>
 
   <!-- Projects Section -->
-  <section class="projects">
+  <section class="projects" id="projects">
     <div class="container">
       <h2 class="section-title">Featured Projects</h2>
       
       <div class="project-main">
         <div class="project-content">
-          <h2>All My Projects On Github</h2>
-          <p>From dynamic websites to smart online solutions, we've built projects that turn ideas into reality. Explore all our projects on GitHub and connect with us there.</p>
+          <h2>Custom Solutions for Real Business Needs</h2>
+          <p>From dynamic websites to smart online solutions, I've built projects that turn ideas into reality and help businesses grow.</p>
           
           <div class="project-stats">
             <div class="stat-item">
-              <div class="stat-value">30%</div>
-              <div class="stat-label">Faster checkout</div>
+              <div class="stat-value">50+</div>
+              <div class="stat-label">Projects Completed</div>
             </div>
             <div class="stat-item">
-              <div class="stat-value">45%</div>
-              <div class="stat-label">Repeat customers</div>
+              <div class="stat-value">100%</div>
+              <div class="stat-label">Client Satisfaction</div>
             </div>
             <div class="stat-item">
-              <div class="stat-value">4.8★</div>
-              <div class="stat-label">User rating</div>
+              <div class="stat-value">15+</div>
+              <div class="stat-label">Technologies</div>
             </div>
           </div>
           
-          <a href="#" class="btn">View Case Study</a>
+          <a href="https://github.com/Leonard432120" class="btn">View All Projects</a>
         </div>
         
         <div class="project-image">
-         <div class="project-badge">Client Project</div>
+         <div class="project-badge">Latest Project</div>
             <img src="fuel.jpg" alt="Smart Printing System Dashboard">
          </div>
-
       </div>
       
       <div class="projects-grid">
         <div class="project-card animate">
-          <img src="ponje.jpg" alt="Smart Printing System Dashboard">
+          <img src="ponje.jpg" alt="Lesson Enrollment System">
           <div class="project-card-content">
             <h3>Lesson Enrollment System</h3>
             <p>A platform for managing online courses, materials, and quizzes with progress tracking.</p>
@@ -965,7 +947,7 @@
         </div>
         
         <div class="project-card animate delay-1">
-          <img src="pay.jpg" alt="Smart Printing System Dashboard">
+          <img src="pay.jpg" alt="Payment Integration System">
           <div class="project-card-content">
             <h3>Payment Integration</h3>
             <p>Integrated PayChangu for mobile money payments in multiple projects with dashboard analytics.</p>
@@ -979,7 +961,7 @@
         </div>
         
         <div class="project-card animate delay-2">
-          <img src="admin.jpg" alt="Smart Printing System Dashboard">
+          <img src="admin.jpg" alt="Admin Dashboard">
           <div class="project-card-content">
             <h3>Admin Dashboard</h3>
             <p>A modern admin panel for managing users, lessons, services, and reports with role-based access.</p>
@@ -993,10 +975,10 @@
         </div>
 
          <div class="project-card animate delay-2">
-          <img src="tracker.jpg" alt="Smart Printing System Dashboard">
+          <img src="tracker.jpg" alt="Fertility Tracker">
           <div class="project-card-content">
             <h3>FERTILITY TRACKER</h3>
-            <p>A smart fertility tracker website that helps users monitor menstrual cycles, predict fertile windows, and manage reproductive health with ease and privacy.</p>
+            <p>A smart fertility tracker website that helps users monitor menstrual cycles, predict fertile windows, and manage reproductive health.</p>
             <div class="technologies">
               <span class="tech-tag">JavaScript</span>
               <span class="tech-tag">PHP</span>
@@ -1007,7 +989,7 @@
         </div>
 
          <div class="project-card animate delay-2">
-          <img src="print.jpg" alt="Smart Printing System Dashboard">
+          <img src="print.jpg" alt="Smart Printing System">
           <div class="project-card-content">
             <h3>Smart Printing System</h3>
             <p>An all-in-one online printing solution with file uploads, service ordering, mobile money payments, and real-time tracking.</p>
@@ -1016,7 +998,7 @@
               <span class="tech-tag">PHP</span>
               <span class="tech-tag">MySQL</span>
             </div>
-            <a href="#" class="btn" style="padding: 8px 20px;">View Project</a>
+            <a href="https://github.com/Leonard432120" class="btn" style="padding: 8px 20px;">View Project</a>
           </div>
         </div>
       </div>
@@ -1024,26 +1006,26 @@
   </section>
 
   <!-- Testimonials Section -->
-  <section class="testimonials">
+  <section class="testimonials" id="testimonials">
     <div class="container">
       <h2 class="section-title">What My Clients Say</h2>
       
       <div class="testimonials-grid">
         <div class="testimonial-card animate">
           <i class="fas fa-quote-right"></i>
-          <p class="testimonial-content">"Leonard Ponje Mlungu built my landing page quickly and professionally. It exceeded my expectations and impressed my clients!"</p>
+          <p class="testimonial-content">"Leonard built my business website quickly and professionally. It exceeded my expectations and has helped attract new clients!"</p>
           <div class="testimonial-author">
             <div class="author-avatar">SA</div>
             <div class="author-details">
               <h4>Moses Mughogho</h4>
-              <p>Web Designer</p>
+              <p>Business Owner</p>
             </div>
           </div>
         </div>
         
         <div class="testimonial-card animate delay-1">
           <i class="fas fa-quote-right"></i>
-         <p class="testimonial-content">"Leonard Ponje Mlungu's designs are not only professional but also educational. They helped me upgrade my skills from graphic design to UI/UX and gave me a solid foundation to build on."</p>
+         <p class="testimonial-content">"Leonard's technical expertise and problem-solving skills helped us implement a complex data analysis system that transformed our business operations."</p>
           <div class="testimonial-author">
             <div class="author-avatar">DK</div>
             <div class="author-details">
@@ -1055,7 +1037,7 @@
         
         <div class="testimonial-card animate delay-2">
           <i class="fas fa-quote-right"></i>
-          <p class="testimonial-content">"I've used many templates before, but Leonard Ponje Mlungu's work is on another level. His attention to detail and clear documentation made implementation effortless."</p>
+          <p class="testimonial-content">"I've worked with many developers, but Leonard's attention to detail and clear communication made this project effortless. The results speak for themselves."</p>
           <div class="testimonial-author">
             <div class="author-avatar">MJ</div>
             <div class="author-details">
@@ -1073,58 +1055,52 @@
     <div class="container">
       <div class="footer-container">
         <div class="footer-col">
-          <h3>PonjeDesign</h3>
-         <p>Leonard Ponje Mlungu designs and develops websites that empower businesses to grow, scale, and succeed online.</p>
+          <h3>Leonard Ponje</h3>
+         <p>Full-Stack Developer & Data Scientist creating innovative web solutions and data-driven applications.</p>
           <div class="social-links">
-            <a href="#"><i class="fab fa-youtube"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-tiktok"></i></a>
-            <a href="#"><i class="fab fa-x-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
             <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
           </div>
         </div>
         
         <div class="footer-col">
-          <h3>Resources</h3>
+          <h3>Services</h3>
           <ul>
-           <li><a href="#">Smart Printing System</a></li>
-           <li><a href="#">Fertility Tracker Website</a></li>
-           <li><a href="#">Learning Management System</a></li>
-           <li><a href="#">Business Portfolio Websites</a></li>
-           <li><a href="#">Custom Web Platforms</a></li>
-
+           <li><a href="#services">Web Development</a></li>
+           <li><a href="#services">Database Solutions</a></li>
+           <li><a href="#services">Data Analysis</a></li>
+           <li><a href="#services">API Integration</a></li>
+           <li><a href="#services">Machine Learning</a></li>
           </ul>
         </div>
         
         <div class="footer-col">
-          <h3>Company</h3>
+          <h3>Quick Links</h3>
           <ul>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
         
         <div class="footer-col">
-          <h3>Stay Updated</h3>
-          <p>Subscribe to our newsletter for new resources, updates, and design tips.</p>
-          <div class="footer-form">
-            <input type="email" placeholder="Your email address">
-            <button><i class="fas fa-paper-plane"></i></button>
-          </div>
-          <p>Get the latest design insights delivered to your inbox.</p>
+          <h3>Contact Info</h3>
+          <p>Reach out for collaborations or inquiries about my services.</p>
+          <p>Email: leonardponje@example.com</p>
+          <p>Location: Malawi</p>
         </div>
       </div>
       
       <div class="footer-bottom">
-        <p>© 2023 DesignMastery. All rights reserved.</p>
+        <p>© 2025 Leonard Ponje. All rights reserved.</p>
         <div class="footer-bottom-links">
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Service</a>
-          <a href="#">Cookie Policy</a>
-          <a href="#">Contact</a>
+          <a href="#contact">Contact</a>
         </div>
       </div>
     </div>
@@ -1159,7 +1135,7 @@
       });
 
       // Form submission
-      const form = document.querySelector('.form-card form');
+      const form = document.querySelector('.contact-card form');
       if (form) {
         form.addEventListener('submit', function(e) {
           e.preventDefault();
@@ -1171,7 +1147,7 @@
           
           // Simulate form submission
           setTimeout(() => {
-            alert('Thank you! Your template download link has been sent to your email.');
+            alert('Thank you! I will review your project details and get back to you within 24 hours.');
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
             form.reset();
